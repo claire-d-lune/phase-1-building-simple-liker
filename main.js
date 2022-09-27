@@ -5,11 +5,13 @@ const FULL_HEART = '♥'
 // Your JavaScript code goes here!
 
 //creating a pointer to all like icon nodes
-const likeIcon = document.querySelector(".like-glyph")
+const likeIcon = document.querySelectorAll(".like-glyph")
 const errorModal = document.querySelector("#modal")
 //use the foreach iterator to add event listeners to each icon:
 
-likeIcon.addEventListener('click', (e) => {
+likeIcon.forEach((element) => console.log(element))
+
+likeIcon.forEach(element => element.addEventListener('click', (e) => {
   mimicServerCall()
   .then(() =>{
     console.log(e.target.textContent)
@@ -29,7 +31,7 @@ likeIcon.addEventListener('click', (e) => {
     errorModal.querySelector('p').textContent = res;
     setTimeout(() => errorModal.className = "hidden", 3000)
     })
-})
+}))
 
 
 //------------------------------------------------------------------------------
